@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <th:block th:insert="~{Layout/MainLayout :: head/link}"></th:block>
+    <title>Detail Post</title>
+</head>
+<body>
+    <div th:insert="~{Layout/MainLayout :: header}"></div>
+    <div class="detail">
+        <h1 th:utext="${post.title}"></h1>
+        <img th:src="@{${post.thumbnail}}" alt="image thumbnail">
+        <p th:utext="${post.description}"></p>
+        <p th:utext="${post.content}"></p>
+    </div>
+    <div>
+        <a th:href="@{/post/edit/{id}(id=${post.id})}"><button>edit</button></a>
+        <form th:action="@{/post/{id} (id=${post.id})}" th:object="${post}" th:method="delete">
+            <button type="submit">delete</button>
+        </form>
+    </div>
+</body>
+</html>

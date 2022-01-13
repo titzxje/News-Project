@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Detail Information</title>
+    <th:block th:insert="~{Layout/MainLayout :: head/link}"></th:block>
+</head>
+<body>
+    <div th:insert="~{Layout/MainLayout :: header}"></div>
+    <h1 th:utext="${message}" ></h1>
+    <div>
+        <h4>Username: </h4>
+        <h4 th:utext="${user.username}"></h4>
+        <h4>Has Role: </h4>
+        <ul th:each="role : ${roles}">
+            <li th:utext="${role}"></li>
+        </ul>
+    </div>
+    <div>
+        <a th:href="@{/user/{username}/changePassword (username=${user.username})}">change password</a>
+    </div>
+    <div th:insert="~{Layout/MainLayout :: footer}"></div>
+    <th:block th:insert="~{Layout/MainLayout :: body/script}"></th:block>
+</body>
+</html>

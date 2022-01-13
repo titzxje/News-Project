@@ -1,0 +1,17 @@
+html,
+body {
+   margin:0;
+   padding:0;
+   height:100%;
+}
+header {
+   padding:10px;
+   background-color:rgb(255, 230, 146);
+}
+footer {
+   position:Absolute;
+   bottom:0;
+   width:100%;
+   height:60px;   /* Height of the footer */
+   background-color:rgb(255, 230, 146);
+}

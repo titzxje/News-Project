@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <th:block th:insert="~{Layout/MainLayout :: head/link}"></th:block>
+</head>
+<body>
+    <div th:insert="~{Layout/MainLayout :: header}"></div>
+    <h1>Register Form</h1>
+    
+    <div th:if="${#request.getParameter('message') == 'fail'}"
+     style="color:red;margin:10px 0px;">
+    Register Failed!!!<br />
+    Reason : Username have been used !!
+    </div>
+
+    <form th:action="@{/register}" th:object="${user}" method="post">
+        <div class="form-group">
+            <label for="exampleInputUsername">Username</label>
+            <input type="text" class="form-control" id="exampleInputUsername" th:field="*{username}" placeholder="username">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPass">Password</label>
+            <input type="text" class="form-control" id="exampleInputPass" th:field="*{password}" placeholder="password">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputRoles">Roles</label>
+            <input type="text" class="form-control" id="exampleInputRoles" th:field="*{roles}" placeholder="roles">
+        </div>
+        <!-- <div class="form-group">
+            <label for="exampleFormControlSelect2">Select Roles</label>
+            <select multiple class="form-control" id="exampleFormControlSelect2" th:field="*{roles}">
+              <option 
+                    th:value="ROLE_ADMIN"> ROLE_ADMIN
+              </option>
+              <option 
+                    th:value="ROLE_USER"> ROLE_USER
+              </option>
+            </select>
+        </div> -->
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+      <div th:insert="~{Layout/MainLayout :: footer}"></div>
+      <th:block th:insert="~{Layout/MainLayout :: body/script}"></th:block>
+</body>
+</html>

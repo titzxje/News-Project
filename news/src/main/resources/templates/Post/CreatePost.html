@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Post</title>
+    <th:block th:insert="~{Layout/MainLayout :: head/link}"></th:block>
+</head>
+<body>
+    <div th:insert="~{Layout/MainLayout :: header}"></div>
+    <h1>Create Post Form</h1>
+ 
+    <form th:action="@{/post/create}" th:object="${post}" method="post">
+        <div class="form-group">
+          <label for="exampleInputTit">Title</label>
+          <input type="text" class="form-control" id="exampleInputTit" th:field="*{title}" placeholder="Title">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputDes">Description</label>
+          <input type="text" class="form-control" id="exampleInputDes" th:field="*{description}" placeholder="Description">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputCon">Content</label>
+            <input type="text" class="form-control" id="exampleInputCon" th:field="*{content}" placeholder="Content">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputThum">Thumnail</label>
+            <input type="text" class="form-control" id="exampleInputThum" th:field="*{thumbnail}" placeholder="Thumnail">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputCat">CategoryCode</label>
+            <input type="text" class="form-control" id="exampleInputCat" th:field="*{categoryCode}" placeholder="CategoryCode">
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+      <div th:insert="~{Layout/MainLayout :: footer}"></div>
+      <th:block th:insert="~{Layout/MainLayout :: body/script}"></th:block>
+</body>
+</html>

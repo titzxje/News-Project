@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <th:block th:insert="~{Layout/MainLayout :: head/link}"></th:block>
+    <title>Edit Post</title>
+</head>
+<body>
+    <div th:insert="~{Layout/MainLayout :: header}"></div>
+    <h1>Edit Post Form</h1>
+    <form th:action="@{/post/edit/{id} (id=${post.id})}" th:object="${post}" th:method="put">
+        <div class="form-group">
+          <label for="exampleInputTit">Title</label>
+          <input type="text" class="form-control" id="exampleInputTit" th:field="*{title}" th:placeholder="${post.title}">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputDes">Description</label>
+          <input type="text" class="form-control" id="exampleInputDes" th:field="*{description}" th:placeholder="${post.description}">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputCon">Content</label>
+            <input type="text" class="form-control" id="exampleInputCon" th:field="*{content}" th:placeholder="${post.content}">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputThum">Thumnail</label>
+            <input type="text" class="form-control" id="exampleInputThum" th:field="*{thumbnail}" th:placeholder="${post.thumbnail}">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputCat">CategoryCode</label>
+            <input type="text" class="form-control" id="exampleInputCat" th:field="*{categoryCode}" th:placeholder="${post.categoryCode}">
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+      <div th:insert="~{Layout/MainLayout :: footer}"></div>
+      <th:block th:insert="~{Layout/MainLayout :: body/script}"></th:block>
+</body>
+</html>
